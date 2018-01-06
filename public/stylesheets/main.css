@@ -269,10 +269,13 @@ select {
 }
 #schedule {
     width: 430px;
-    height: 500px;
+    height: 640px;
     position: absolute;
     top: 110px;
     right: 100px;
+    border: 1px solid #d0ab15;
+    background: #FFC;
+    border-radius: 5px
 }
 #main {
         position: relative;
@@ -280,7 +283,7 @@ select {
         height: 260px;
     }
 #src {
-    width: 420px;
+    width: 426px;
     height: 260px;
     background-color: white;
     background-size: cover;
@@ -306,6 +309,7 @@ button {
 .dataIcon {
     width: 60px;
     height: 70px;
+    margin-left: 10px;
 }
 .calendar {
     height: 70 px;
@@ -314,7 +318,7 @@ button {
 .calendar p{
     text-align: center;
     position: absolute;
-    left: 70px;
+    left: 80px;
     bottom: 20px;
     font: 14px Lucida Sans Unicode;
 }
