@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maket</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/javascript/main.js"></script>
+    <script src="/javascript/submit.js"></script>
+    <script src="/javascript/slider.js"></script>
+</head>
+<body>
+<header class="header">
+    <img id="logo" src="images/logo.png" alt="Logo">
+    <div id="contactPhone">
+        <span><b>Телефон для справок:</b><br>
+            8-800-178-08-12 </span>
+    </div>
+    <div id="contactMail">
+        <span><b>E-mail:</b><br>
+            codding-lab@mail.ru</span>
+    </div>
+    <div id="socialIcons">
+        <img src="images/twitter.png" alt="twitter">
+        <img src="images/vk.png" alt="twitter">
+        <img src="images/youtube.png" alt="twitter">
+        <img src="images/facebook.png" alt="twitter">
+        <img src="images/github.png" alt="twitter">
+    </div>
+</header>
+<div class="wrapper">
+    <main class="content">
+        <div id="book_marksbox">
+            <div id="book_marks">
+                <div id="book_mark" class="current">НАШИ КУРСЫ</div>
+                <div id="book_mark" class="next" disabled>РЕГИСТРАЦИЯ</div>
+                <div id="book_mark">СПИСКИ СТУДЕНТОВ</div>
+            </div>
+
+            <div class="book_markbox open">
+                <div id="schoolInfo">
+                    <h2> Школа программирования "CodeLab" приглашает студентов на очные занятия с ведущими специалистами</h2>
+                    <p>Вы узнаете о современных технологиях от тех, кто работает с ними ежедневно, и самостоятельно реализует настоящие бизнес-проекты.</p>
+                    <p>Для получения более подробной информации, необходимо выбрать направление подготовки и зарегестрироваться:</p>
+                </div>
+                <div id="schedule">
+                    <div id="main">
+                        <button class="left"><</button>
+                        <div id="src"></div>
+                        <button class="right">></button>
+                    </div>
+                    <p style="font: 20px Lucida Sans Unicode; text-align: center"> <b> События января: </b> </p>
+                    <div class="calendar">
+                        <img class="dataIcon" src="http://to-name.ru/images/primeti/january-18.jpg">
+                        <p> Окончание регистрации на <b>JAVA</b> курс</p>
+                    </div>
+                    <div class="calendar">
+                        <img class="dataIcon" src="http://to-name.ru/images/primeti/january-24.jpg">
+                        <p>Окончание регистрации на <b>C#</b> курс</p>
+                    </div>
+                    <div class="calendar">
+                        <img class="dataIcon" src="http://to-name.ru/images/primeti/january-28.jpg">
+                        <p> Окончание регистрации на <b>JavaScript</b> курс</p>
+                    </div>
+                    <div class="calendar">
+                        <img class="dataIcon" src="http://to-name.ru/images/primeti/january-30.jpg">
+                        <p> Окончание регистрации на <b>PHP</b> курс</p>
+                    </div>
+                </div>
+                <div id="items" align="center">
+                    <div class="item" id="Java">
+                        <img src="https://images.sftcdn.net/images/t_optimized,f_auto/p/2f4c04f4-96d0-11e6-9830-00163ed833e7/3163796423/java-runtime-environment-logo.png" alt="Java">
+                        <span align="left">
+                            <h3>Курс по Java</h3>
+                            <p> Очный курс для студентов</p>
+                            <input class="detail" type="button" value="Подробнее">
+                            <br>
+                        </span>
+                        <div class="itemName">Learn Java</div>
+                    </div>
+                    <div class="item" id="Python">
+                        <img src="http://qacademy.ca/wp-content/uploads/2016/07/python-logo.png" alt="Python">
+                        <span align="left">
+                            <h3>Курс по Java</h3>
+                            <p> Очный курс для студентов</p>
+                            <input class="detail" type="button" value="Подробнее">
+                            <br>
+                        </span>
+                        <div class="itemName">Learn Python</div>
+                    </div>
+                    <div class="item" id="PHP">
+                        <img src="https://hackr.io/tutorials/learn-php/logo/php_logo" alt="PHP">
+                        <div class="itemName">Learn PHP</div>
+                    </div>
+                    <div class="item" id="JavaScript">
+                        <img src="https://www.javatpoint.com/images/javascript/javascript_logo.png" alt="JavaScript">
+                        <div class="itemName">Learn Java Script</div>
+                    </div>
+                    <div class="item" id="C#">
+                        <img src="https://developer.fedoraproject.org/static/logo/csharp.png" alt="C#">
+                        <div class="itemName">Learn C#</div>
+                    </div>
+                    <div class="item" id="Kotlin">
+                        <img src="https://avatars0.githubusercontent.com/u/1446536?s=400&v=4" alt="Kotlin">
+                        <div class="itemName">Learn Kotlin</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div align="center">
+                        <input  id="continue" type="submit" value="Подать заявку на курс" disabled>
+                    </div>
+                </div>
+
+            </div>
+            <div class="book_markbox" disabled>
+                <div id="registrationInfo">
+                    <span>Вы хотите зарегестрироваться на курс </span>
+                    <input id='selectedCourse' value=''>
+                    <span>Наша компания ищет как студентов, так и преподавателй. Если вы считаете, что обладаете нужными знаниями и имееете желание преподавать другим студнетам, пожалуйста, заполните анкету, и мы обязательно свяжемся с вами</span>
+                </div>
+                <div id="content" align="center">
+                    <input class="button" id="form1" type="submit" value="Зарегистрироваться как студент" />
+                    <br>
+                    <input class="button" id="form2" type="submit" value="Зарегистрироваться как преподаватель" />
+                </div>
+            </div>
+            <div class="book_markbox">
+                <div align="center">
+                    <br>
+                    <div id="javaBD" align="center">
+                        <br>
+                        <div>
+                            <select id="course">
+                                <option>Java</option>
+                                <option>Python</option>
+                                <option>C++</option>
+                                <option>PHP</option>
+                                <option>JavaScript</option>
+                                <option>Ruby</option>
+                                <option>C#</option>
+                                <option>Kotlin</option>
+                            </select>
+                            <select>
+                                <option selected>Все уровни</option>
+                                <option>Elementary</option>
+                                <option>Middle</option>
+                                <option>Advaced</option>
+                            </select>
+                            <input class="button" type="submit" id="request" value="Запросить" />
+                        </div>
+                        <br>
+                        <table id="students" border="1">
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                            <th>Уровень</th>
+                            <th>Email</th>
+                        </table>
+                        <div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="overlay"> </div>
+<div class="popup" id="JavaPopup">
+    <div class="popupTop">
+        <h2>Курсы Java</h2>
+        <span class="close">X</span>
+    </div>
+    <div class="popupBottom">
+        <p><b>О курсе:</b></p>
+        <span>Основная задача курса – познакомить слушателя с практиками разработки серверных приложений на Java. В процессе прохождения курса, слушатель узнает об особенностях языка и платформы Java, познакомиться с библиотекой Java, освоит подходы к проектированию приложений и реализации модулей для работы с базами, файлами, веб фронтендом и другими приложениями.</span>
+        <p><b>Длительность:</b></p>
+        <span>2 месяца</span>
+        <p><b>Программа курса:</b></p>
+        <ul>
+            <li>Введение в Java.</li>
+            <li>Введение в ООП.</li>
+            <li>Типы данных в Java.</li>
+            <li>Работа с экземплярами в Java.</li>
+            <li>Наследование в Java.</li>
+        </ul>
+        <span></span>
+    </div>
+</div>
+<div class="popup" id="PythonPopup">
+    <div class="popupTop">
+        <h2>Курсы Python</h2>
+        <span class="close">X</span>
+    </div>
+    <div class="popupBottom">
+        <p><b>О курсе:</b></p>
+        <span></span>
+        <p><b>Длительность:</b></p>
+        <span>2 месяца</span>
+        <p><b>Программа курса:</b></p>
+        <span></span>
+    </div>
+</div>
+<footer class="footer">
+    <p><b>Адрес учебного центра:</b> </p>
+</footer>
+<style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background: #1BA39C url(http://hello-site.ru//main/images/preloads/spinning-circles.svg) center center no-repeat;background-size:41px;}</style>
+<div id="hellopreloader">
+<div id="hellopreloader_preload">
+</div><p><a href="http://hello-site.ru">Hello-Site.ru. Бесплатный конструктор сайтов.</a></p></div>
+<script type="text/javascript">
+    var hellopreloader = document.getElementById("hellopreloader_preload");
+    function fadeOutnojquery(el){el.style.opacity = 1;
+    var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;
+    if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);
+    hellopreloader.style.display = "none";}},16);}
+    window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};
+</script>
+</body>
+</html>

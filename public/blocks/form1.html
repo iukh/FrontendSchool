@@ -1,0 +1,34 @@
+<input class="button" id="form1" type="submit" value="Зарегистрироваться как студент" disabled>
+<input class="button" id="form2" type="submit" value="Зарегистрироваться как преподаватель" />
+<form id="clientForm1">
+    <p>Заполните, пожалуйста, заявку, и мы свяжемся с вами </p>
+                    <div>
+                        <input class="input" type="text" name="name" id="name" placeholder="Имя" />
+                        <div class="error-box"></div>
+                        <input class="input" type="text" name="lastname" id="lastname" placeholder="Фамилия">
+                        <div class="error-box"></div>
+                    </div>
+                    <div>
+                        <input class="input" type="text" name="phone" id="phone" placeholder="Контактный телефон">
+                        <div class="error-box"></div>
+                        <input class="input" type="text" name="mail" id="mail" placeholder="E-mail">
+                        <div class="error-box"></div>
+                    </div>
+                    <div>
+                    <select height="30px" name="level" id="level">
+                        <option value="0" disabled selected>Выберите уровень владения языком</option>
+                        <option value="1"> Не знаком с этим языком</option>
+                        <option value="2"> Писал простые программы</option>
+                        <option value="3"> Хорошо знаю синтаксис и некоторые библиотеки</option>
+                        <option value="4"> Сделал как минимум один крупный проект </option>
+                    </select>
+                    <div>
+                        <p>Дополнительные сведения о себе и пожелания к курсу:</p>
+                        <textarea name="wish" width="400px" id="wish"></textarea>
+                    </div>
+                    </div>
+                    <input class="button" id="submit" type="button" value="Отправить заявку" />
+ </form>
+<script src="javascript/changeForm.js"></script>
+<script src="javascript/submit.js"></script>
+<script src="javascript/validate.js"></script>
