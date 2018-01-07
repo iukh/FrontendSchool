@@ -2,7 +2,40 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
+var nodemailer = require('nodemailer');
 var db;
+
+// create reusable transporter object using the default SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+    XOAuth2: {
+        user: "codinglabschool@gmail.com", // generated ethereal user
+         clientId: "1083480911500-j6tgrlhiol0479nsg039qrthuvrpntl8.apps.googleusercontent.com",
+        clientSecret: "iFqQ0V7baQoQacTp7JnWE_f2",
+        refreshToken: "1/3Sc5-CuKtBucBIRCimCrEBJ6AlCw01iS7-qGHDo_bVk"
+    }
+    }
+});
+// setup email data with unicode symbols
+var mailOptions = {
+    from: '<codinglabschool@gmail.com>', // sender address
+    to: 'codinglabschool@gmail.com', // list of receivers
+    subject: 'Hello', // Subject line
+    text: 'Hello world?', // plain text body
+    html: '<b>Hello world?</b>' // html body
+};
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, response){
+    if(error){
+        console.log(error);
+    }else{
+        console.log("Message sent: " + response.message);
+    }
+    transporter.close();
+});
+
+
 
 MongoClient.connect('mongodb://localhost:27017', function (err, client) {
   if (err) throw err;
