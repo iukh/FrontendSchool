@@ -1,4 +1,5 @@
 $("#form1").click(function() {
+    history.pushState('', '', '/StudentRegistration');
     $.ajax({
         url: "/blocks/form1.html",
         dataType: "html",
@@ -11,6 +12,7 @@ $("#form1").click(function() {
      });
  });
 $("#form2").click(function() {
+    history.pushState('', '', '/TeacherRegistration');
     $.ajax({
         url: "/blocks/form2.html",
         dataType: "html",

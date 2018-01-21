@@ -1,6 +1,6 @@
 (function($) {
 var slider={
-    slides: ['./images/1.png','./images/2.png','./images/3.png','./images/4.png','./images/5.png'],
+    slides: ['/images/1.png','/images/2.png','/images/3.png','/images/4.png','/images/5.png'],
     frame: 0,
     set: function(image) {
         document.getElementById("src").style.backgroundImage="url("+image+")";

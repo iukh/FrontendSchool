@@ -5,41 +5,9 @@ var MongoClient = require('mongodb').MongoClient;
 var nodemailer = require('nodemailer');
 var db;
 
-// create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-    XOAuth2: {
-        user: "codinglabschool@gmail.com", // generated ethereal user
-         clientId: "1083480911500-j6tgrlhiol0479nsg039qrthuvrpntl8.apps.googleusercontent.com",
-        clientSecret: "iFqQ0V7baQoQacTp7JnWE_f2",
-        refreshToken: "1/3Sc5-CuKtBucBIRCimCrEBJ6AlCw01iS7-qGHDo_bVk"
-    }
-    }
-});
-// setup email data with unicode symbols
-var mailOptions = {
-    from: '<codinglabschool@gmail.com>', // sender address
-    to: 'codinglabschool@gmail.com', // list of receivers
-    subject: 'Hello', // Subject line
-    text: 'Hello world?', // plain text body
-    html: '<b>Hello world?</b>' // html body
-};
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, response){
-    if(error){
-        console.log(error);
-    }else{
-        console.log("Message sent: " + response.message);
-    }
-    transporter.close();
-});
-
-
-
 MongoClient.connect('mongodb://localhost:27017', function (err, client) {
   if (err) throw err;
-  console.log("db successfully connectied");
+  console.log("db successfully connected");
 
 });
 app.use(bodyParser.json());
@@ -49,12 +17,20 @@ app.use(express.static(__dirname + '/public/blocks'));
 app.post('/getStudents', function(req,res){
       MongoClient.connect('mongodb://localhost:27017', function (err, client) {
         if (err) throw err;
-        console.log("Success");
         var db = client.db('mybd');
+        var Level = {
+            "Все уровни": ["1","2","3","4"],
+            "Beginner": ["1"],
+            "Elementary": ["2"],
+            "Middle": ["3"],
+            "Advanced": ["4"]
+        };
         var course = req.body.course;
+        var selectedLevel = Level[req.body.level];
         console.log(course);
+        console.log(selectedLevel);
         //console.log("result "+ JSON.stringify(db.collection('JavaUsers').count()));
-        db.collection(course).find().toArray(function (findErr, result) {
+        db.collection(course).find({level: {"$in": selectedLevel}}).toArray(function (findErr, result) {
             if (findErr) throw findErr;
             var students=[];
             if (result.length > 0) {
@@ -95,6 +71,64 @@ app.post('/addStudent', function(req,res){
         phone: req.body.phone,
         date: "19:00MSK 13.12.2017"
     });
+    var transporter = nodemailer.createTransport({
+        host: 'smtp.1blu.de',
+        debug: true,
+        requireTLS: true,
+        port: 465,
+        secure: true,
+        service: 'Gmail',
+        auth: {
+            XOAuth2: {
+                user: "codinglabschool@gmail.com",
+                 clientId: "1083480911500-j6tgrlhiol0479nsg039qrthuvrpntl8.apps.googleusercontent.com",
+                clientSecret: "iFqQ0V7baQoQacTp7JnWE_f2",
+                refreshToken: "1/3Sc5-CuKtBucBIRCimCrEBJ6AlCw01iS7-qGHDo_bVk"
+            }
+        },
+         tls: {
+                 ciphers:'SSLv3',
+                 rejectUnauthorized: false
+             }
+    });
+    var mailOptions = {
+        from: '<codinglabschool@gmail.com>',
+        to: 'codinglabschool@gmail.com',
+        subject: 'Hello',
+        text: 'Successful registartion',
+        html: '<b>You have registered. We will contact you</b>'
+    };
+    transporter.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+        }else{
+            console.log("Message sent: " + response.message);
+        }
+        transporter.close();
+    });
+});
+app.post('/addTeacher', function(req,res){
+    console.log("Your POST request:" + req.body.toString());
+    MongoClient.connect('mongodb://localhost:27017', function (err, client) {
+        if (err) throw err;
+        console.log("Success");
+        var db = client.db('mybd');
+        var course = req.body.course+'Teacher';
+        console.log(course);
+        db.collection(course).insert({
+            "name": req.body.name,
+            "lastname": req.body.lastname,
+            "phone": req.body.phone,
+            "email": req.body.mail
+        })
+        client.close();
+    });
+    res.send({
+        name: req.body.name,
+        email: req.body.mail,
+        phone: req.body.phone,
+        date: "19:00MSK 13.12.2017"
+    });
 });
 app.post('/deleteStudent', function(req,res){
     MongoClient.connect('mongodb://localhost:27017', function (err, client) {
@@ -116,7 +150,40 @@ app.post('/deleteStudent', function(req,res){
         date: "19:00MSK 13.12.2017"
     });
 });
+app.post('/deleteTeacher', function(req,res){
+    MongoClient.connect('mongodb://localhost:27017', function (err, client) {
+        if (err) throw err;
+        console.log("Success");
+        var db = client.db('mybd');
+        var course = req.body.course;
+        console.log(course);
+        console.log(req.body.name);
+        console.log(req.body.mail);
+        var course=course+"Teacher";
+        db.collection(course).deleteOne({
+            "name": req.body.name,
+            "email": req.body.mail
+        })
+        client.close();
+    });
+    res.send({
+        name: req.body.name,
+        date: "19:00MSK 13.12.2017"
+    });
+});
 app.get('/', function(req,res){
+    res.sendfile(__dirname + '/public/main.html');
+});
+app.get('/main', function(req,res){
+    res.sendfile(__dirname + '/public/main.html');
+});
+app.get('/registration', function(req,res){
+    res.sendfile(__dirname + '/public/main.html');
+});
+app.get('/students', function(req,res){
+    res.sendfile(__dirname + '/public/main.html');
+});
+app.get('/site/public/main.html', function(req,res){
     res.sendfile(__dirname + '/public/main.html');
 });
 app.get('/javascript/main.js', function(req,res){
@@ -139,9 +206,6 @@ app.get('/images/bg_white_trans.png', function(req,res){
 });
 app.get('/blocks/form2.html', function(req,res){
     res.sendfile(__dirname + '/public/blocks/form2.html');
-});
-app.get('/site/public/main.html', function(req,res){
-    res.sendfile(__dirname + '/public/main.html');
 });
 
 app.get('/stylesheets/main.css', function(req,res){

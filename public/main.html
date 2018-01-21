@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Maket</title>
-    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/javascript/main.js"></script>
     <script src="/javascript/submit.js"></script>
@@ -11,7 +11,7 @@
 </head>
 <body>
 <header class="header">
-    <img id="logo" src="images/logo.png" alt="Logo">
+    <img id="logo" src="/images/logo.png" alt="Logo">
     <div id="contactPhone">
         <span><b>Телефон для справок:</b><br>
             8-800-178-08-12 </span>
@@ -21,27 +21,27 @@
             codding-lab@mail.ru</span>
     </div>
     <div id="socialIcons">
-        <img src="images/twitter.png" alt="twitter">
-        <img src="images/vk.png" alt="twitter">
-        <img src="images/youtube.png" alt="twitter">
-        <img src="images/facebook.png" alt="twitter">
-        <img src="images/github.png" alt="twitter">
+        <img src="/images/twitter.png" alt="twitter">
+        <img src="/images/vk.png" alt="twitter">
+        <img src="/images/youtube.png" alt="twitter">
+        <img src="/images/facebook.png" alt="twitter">
+        <img src="/images/github.png" alt="twitter">
     </div>
 </header>
 <div class="wrapper">
     <main class="content">
         <div id="book_marksbox">
             <div id="book_marks">
-                <div id="book_mark" class="current">НАШИ КУРСЫ</div>
-                <div id="book_mark" class="next" disabled>РЕГИСТРАЦИЯ</div>
-                <div id="book_mark">СПИСКИ СТУДЕНТОВ</div>
+                <div id="book_mark" class="current main" name="/main">НАШИ КУРСЫ</div>
+                <div id="book_mark" class="next registration" disabled name="/registration">РЕГИСТРАЦИЯ</div>
+                <div id="book_mark" class="students" name="/students">СПИСКИ СТУДЕНТОВ</div>
             </div>
 
             <div class="book_markbox open">
                 <div id="schoolInfo">
-                    <h2> Школа программирования "CodeLab" приглашает студентов на очные занятия с ведущими специалистами</h2>
+                    <h2> Школа программирования "CodingLab" приглашает студентов на очные занятия с ведущими специалистами</h2>
                     <p>Вы узнаете о современных технологиях от тех, кто работает с ними ежедневно, и самостоятельно реализует настоящие бизнес-проекты.</p>
-                    <p>Для получения более подробной информации, необходимо выбрать направление подготовки и зарегестрироваться:</p>
+                    <p>Для получения более подробной информации, необходимо выбрать направление подготовки и зарегистрироваться:</p>
                 </div>
                 <div id="schedule">
                     <div id="main">
@@ -73,7 +73,7 @@
                         <span align="left">
                             <h3>Курс по Java</h3>
                             <p> Очный курс для студентов</p>
-                            <input class="detail" type="button" value="Подробнее">
+                            <input class="detail detailJava" type="button" value="Подробнее">
                             <br>
                         </span>
                         <div class="itemName">Learn Java</div>
@@ -81,27 +81,51 @@
                     <div class="item" id="Python">
                         <img src="http://qacademy.ca/wp-content/uploads/2016/07/python-logo.png" alt="Python">
                         <span align="left">
-                            <h3>Курс по Java</h3>
+                            <h3>Курс по Python</h3>
                             <p> Очный курс для студентов</p>
-                            <input class="detail" type="button" value="Подробнее">
+                            <input class="detail noDetails" type="button" value="Подробнее">
                             <br>
                         </span>
                         <div class="itemName">Learn Python</div>
                     </div>
                     <div class="item" id="PHP">
                         <img src="https://hackr.io/tutorials/learn-php/logo/php_logo" alt="PHP">
+                        <span align="left">
+                            <h3>Курс по PHP</h3>
+                            <p> Очный и online курс для студентов</p>
+                            <input class="detail noDetails" type="button" value="Подробнее">
+                            <br>
+                        </span>
                         <div class="itemName">Learn PHP</div>
                     </div>
                     <div class="item" id="JavaScript">
                         <img src="https://www.javatpoint.com/images/javascript/javascript_logo.png" alt="JavaScript">
+                        <span align="left">
+                            <h3>Курс по JavaScript</h3>
+                            <p> Очный и online курс для студентов</p>
+                            <input class="detail noDetails" type="button" value="Подробнее">
+                            <br>
+                        </span>
                         <div class="itemName">Learn Java Script</div>
                     </div>
                     <div class="item" id="C#">
                         <img src="https://developer.fedoraproject.org/static/logo/csharp.png" alt="C#">
+                        <span align="left">
+                            <h3>Курс по C#</h3>
+                            <p> Очный и online курс для студентов</p>
+                            <input class="detail noDetails" type="button" value="Подробнее">
+                            <br>
+                        </span>
                         <div class="itemName">Learn C#</div>
                     </div>
                     <div class="item" id="Kotlin">
                         <img src="https://avatars0.githubusercontent.com/u/1446536?s=400&v=4" alt="Kotlin">
+                        <span align="left">
+                            <h3>Курс по Kotlin</h3>
+                            <p> Очный и online курс для студентов</p>
+                            <input class="detail noDetails" type="button" value="Подробнее">
+                            <br>
+                        </span>
                         <div class="itemName">Learn Kotlin</div>
                     </div>
                     <br>
@@ -114,49 +138,50 @@
             </div>
             <div class="book_markbox" disabled>
                 <div id="registrationInfo">
-                    <span>Вы хотите зарегестрироваться на курс </span>
-                    <input id='selectedCourse' value=''>
-                    <span>Наша компания ищет как студентов, так и преподавателй. Если вы считаете, что обладаете нужными знаниями и имееете желание преподавать другим студнетам, пожалуйста, заполните анкету, и мы обязательно свяжемся с вами</span>
+                    <p style="text-align: center;">Вы хотите зарегистрироваться на курс <b><span id="selectedCourse"></span></b>.</p>
+                    <p style="text-align: center;">Наша компания ищет как студентов, так и преподавателй. Если вы считаете, что обладаете нужными знаниями и имееете желание преподавать другим студнетам, пожалуйста, заполните анкету, и мы обязательно свяжемся с вами</p>
                 </div>
                 <div id="content" align="center">
+                    <br>
                     <input class="button" id="form1" type="submit" value="Зарегистрироваться как студент" />
                     <br>
                     <input class="button" id="form2" type="submit" value="Зарегистрироваться как преподаватель" />
+                    <br>
+                    <img id="advertising" style="width: 600px; height: 450px; margin-top: 10px;" src="/images/5.png">
                 </div>
             </div>
             <div class="book_markbox">
                 <div align="center">
                     <br>
-                    <div id="javaBD" align="center">
+                    <div id="database" align="center">
                         <br>
                         <div>
+                            <p>Зарегистрировавшиеся студенты </p>
                             <select id="course">
                                 <option>Java</option>
                                 <option>Python</option>
-                                <option>C++</option>
                                 <option>PHP</option>
                                 <option>JavaScript</option>
-                                <option>Ruby</option>
                                 <option>C#</option>
                                 <option>Kotlin</option>
                             </select>
-                            <select>
+                            <select id="courseLevel">
                                 <option selected>Все уровни</option>
+                                <option>Beginner</option>
                                 <option>Elementary</option>
                                 <option>Middle</option>
-                                <option>Advaced</option>
+                                <option>Advanced</option>
                             </select>
                             <input class="button" type="submit" id="request" value="Запросить" />
                         </div>
                         <br>
+                        <div id="courseStatistic"></div>
                         <table id="students" border="1">
                             <th>Имя</th>
                             <th>Фамилия</th>
                             <th>Уровень</th>
                             <th>Email</th>
                         </table>
-                        <div>
-                </div>
             </div>
         </div>
     </main>
@@ -183,21 +208,28 @@
         <span></span>
     </div>
 </div>
-<div class="popup" id="PythonPopup">
+<div class="popup" id="NoDetailsPopUp">
     <div class="popupTop">
-        <h2>Курсы Python</h2>
+        <h2>Курсы <span id="сourseName"></span></h2>
         <span class="close">X</span>
     </div>
     <div class="popupBottom">
-        <p><b>О курсе:</b></p>
-        <span></span>
-        <p><b>Длительность:</b></p>
-        <span>2 месяца</span>
-        <p><b>Программа курса:</b></p>
-        <span></span>
+        <p><b>КУРС НАХОДИТСЯ В РАЗРАБОТКЕ</b></p>
+    </div>
+</div>
+<div class="popup" id="advertisingPopup">
+    <div class="popupTop">
+        <h2 style="text-align: center;">ДОБРО ПОЖАЛОВАТЬ НА НАШ САЙТ <span id="сourseName"></span></h2>
+        <span class="close">X</span>
+    </div>
+    <div  class="popupBottom">
+        <p style="text-align: center; font-size: 16px;"><b>"CodingLab" проводит набор на курсы программирования</b></p>
+        <img src="http://static.wixstatic.com/media/d1f41a_819022b120f54359a3e4cc1f5fd3892d.png" style="width: 480px; height: 300px;margin-top: 10px;">
+        <p style="text-align: center; font-size: 16px;"><b>Мы ищем талантливых студентов и професcиональных преподавателей</b></p>
     </div>
 </div>
 <footer class="footer">
+    <br>
     <p><b>Адрес учебного центра:</b> </p>
 </footer>
 <style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background: #1BA39C url(http://hello-site.ru//main/images/preloads/spinning-circles.svg) center center no-repeat;background-size:41px;}</style>

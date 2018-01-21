@@ -41,9 +41,7 @@ body {
 .wrapper {
 	width: 1200px;
 	margin: 0 auto;
-	min-height: 100%;
-	/*height: auto !important;*/
-	height: 100%;
+	height: auto !important;
 }
 .header {
     width: 100%;
@@ -52,16 +50,17 @@ body {
 }
 .content {
 	/*padding: 0 0 800px;*/
-	height: 750px;
+	height: 850px;
 	background: #FFFFFF;
+	font: 14px Helvetica;
+	position: relative;
 }
 .footer {
 	width: 100%;
 	/*margin: -50px auto 0;*/
 	height: 50px;
 	background: #00665E;
-	position: absolute;
-	bottom: -220px;
+	position: relative;
 }
 /*
 .nav {
@@ -72,6 +71,7 @@ body {
     /*padding: 20px;
     margin: 20px; */
     border-top: solid 1px #000;
+    font: 20px Helvetica;
     position: relative;
 }
 #content input, #content select, #content textarea  {
@@ -87,10 +87,13 @@ body {
     border-radius: 3px;
     width: 400px;
     height: 25px;
-    font: 18px Lucida Sans Unicode;
+    font: 16px Helvetica;
 }
-#content textarea {
+#content textarea  {
     height: 60px;
+}
+#content textarea.experience{
+    height: 120px;
 }
 #content select  {
     margin: 8px;
@@ -98,7 +101,7 @@ body {
     border-radius: 3px;
     width: 418px;
     height: 50px;
-    font: 14px Lucida Sans Unicode;
+    font: 14px Helvetica;
 }
 .item {
     color:#333;
@@ -129,7 +132,7 @@ img {
     border: 0px;
 }
 #logo {
-width: 320px;
+width: 350px;
 height: 65px;
 }
 #continue, .button {
@@ -142,7 +145,7 @@ height: 65px;
             border-style: solid none;
             border-color: #FDBE33 #000 #D77206;
             border-radius: 6px;
-            background: linear-gradient(#F3AE0F, #E38916) #E38916;
+            background: linear-gradient(#F3AE0F, #d0ab15) #d0ab15;
             transition: 0.2s;
           }
 #continue:disabled ,.button:disabled{
@@ -173,14 +176,18 @@ height: 65px;
     width: 180px;
     line-height: 1.2em;
 }
-#clientForm1 input.not_error{
+#clientForm1 input.not_error, #clientForm2 input.not_error{
     border: 2px solid green;
 }
-#clientForm1 input.error {
+#clientForm1 input.error, #clientForm2 input.error {
+    border: 2px solid red;
+    font: 14px Helvetica;
+}
+#clientForm1 select.error, #clientForm2 select.error {
     border: 2px solid red;
 }
-#clientForm1 select.error {
-    border: 2px solid red;
+.error-box: {
+    font: 14px Helvetica;
 }
     table td, table th {
     width: 200px;
@@ -188,6 +195,7 @@ height: 65px;
 table {
     padding: 0px;
     border-collapse: collapse;
+    font: 15px Georgia;
 }
 select {
     width: 200px;
@@ -203,6 +211,24 @@ select {
     right: 0;
     left: 0;
     bottom: 0;
+}
+#advertisingPopup {
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+    border: 3px #1d766f solid;
+    background: #74c5c7f5;
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    margin-top: -250px;
+    margin-left: -250px;
+    z-index: 5;
+}
+#advertisingPopup .popupBottom {
+    background: #74c5c7f5;
 }
 .popup {
     width: 500px;
@@ -247,14 +273,14 @@ select {
     top: 0px;
     left: 350px;
     position: absolute;
-    font: 20px Lucida Sans Unicode;
+    font: 20px Helvetica;
     margin: 10px;
 }
 #contactMail {
     top: 0px;
     left: 620px;
     position: absolute;
-    font: 20px Lucida Sans Unicode;
+    font: 20px Helvetica;
     margin: 10px;
 }
 #socialIcons {
@@ -271,8 +297,8 @@ select {
     width: 430px;
     height: 640px;
     position: absolute;
-    top: 110px;
-    right: 100px;
+    top: 50px;
+    right: 30px;
     border: 1px solid #d0ab15;
     background: #FFC;
     border-radius: 5px
@@ -320,19 +346,22 @@ button {
     position: absolute;
     left: 80px;
     bottom: 20px;
-    font: 14px Lucida Sans Unicode;
+    font: 14px Helvetica;
 }
 #schoolInfo {
     text-align: center;
-    font: 14px Lucida Sans Unicode;
+    font: 14px Helvetica;
     width: 700px;
     margin: 10px;
 }
 #registrationInfo {
-    font: 14px Lucida Sans Unicode;
+    font: 14px Helvetica;
     margin: 10px;
 }
 form p {
     margin: 8px;
-    font: 14px Lucida Sans Unicode;
+    font: 14px Helvetica;
+}
+#database {
+    font: 17px Georgia;
 }
