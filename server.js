@@ -50,6 +50,10 @@ app.post('/getStudents', function(req,res){
       });
 });
 app.post('/addStudent', function(req,res){
+    if(req.body.mail=="" || req.body.name=="" || req.body.lastname=="" || req.body.phone=="") {
+        res.send("Поля не должны быть пустыми");
+        return false;
+    }
     console.log("Your POST request:" + req.body.toString());
     MongoClient.connect('mongodb://localhost:27017', function (err, client) {
         if (err) throw err;
